@@ -1,0 +1,634 @@
+{
+  "questions": [
+    {
+      "category": "Wine Varieties",
+      "difficulty": "Easy",
+      "question": "Which grape variety is used to make Champagne?",
+      "options": ["Chardonnay", "Riesling", "Malbec", "Tempranillo"],
+      "correctAnswer": "Chardonnay"
+    },
+    {
+      "category": "Wine Varieties",
+      "difficulty": "Easy",
+      "question": "What color is Pinot Noir wine?",
+      "options": ["Red", "White", "Rosé", "Orange"],
+      "correctAnswer": "Red"
+    },
+    {
+      "category": "Wine Varieties",
+      "difficulty": "Easy",
+      "question": "Which grape makes Sauvignon Blanc?",
+      "options": ["Sauvignon Blanc", "Chardonnay", "Viognier", "Riesling"],
+      "correctAnswer": "Sauvignon Blanc"
+    },
+    {
+      "category": "Wine Varieties",
+      "difficulty": "Easy",
+      "question": "Cabernet Sauvignon is primarily a __ wine.",
+      "options": ["Red", "White", "Sparkling", "Dessert"],
+      "correctAnswer": "Red"
+    },
+    {
+      "category": "Wine Varieties",
+      "difficulty": "Easy",
+      "question": "Which of these is a white grape variety?",
+      "options": ["Chardonnay", "Merlot", "Grenache", "Shiraz"],
+      "correctAnswer": "Chardonnay"
+    },
+    {
+      "category": "Wine Varieties",
+      "difficulty": "Normal",
+      "question": "What is the main grape used in Barolo wine?",
+      "options": ["Sangiovese", "Nebbiolo", "Barbera", "Merlot"],
+      "correctAnswer": "Nebbiolo"
+    },
+    {
+      "category": "Wine Varieties",
+      "difficulty": "Normal",
+      "question": "Malbec is most famously associated with which country?",
+      "options": ["France", "Italy", "Argentina", "Spain"],
+      "correctAnswer": "Argentina"
+    },
+    {
+      "category": "Wine Varieties",
+      "difficulty": "Normal",
+      "question": "Which grape variety is the basis for Chianti wine?",
+      "options": ["Barbera", "Sangiovese", "Montepulciano", "Nero d'Avola"],
+      "correctAnswer": "Sangiovese"
+    },
+    {
+      "category": "Wine Varieties",
+      "difficulty": "Normal",
+      "question": "Tempranillo is the primary grape of which Spanish wine region?",
+      "options": ["Albariño", "Rioja", "Cava", "Sherry"],
+      "correctAnswer": "Rioja"
+    },
+    {
+      "category": "Wine Varieties",
+      "difficulty": "Normal",
+      "question": "What grape is Chablis made from?",
+      "options": ["Pinot Gris", "Chardonnay", "Aligoté", "Melon de Bourgogne"],
+      "correctAnswer": "Chardonnay"
+    },
+    {
+      "category": "Wine Varieties",
+      "difficulty": "Hard",
+      "question": "Which grape variety is also known as Syrah in France and Shiraz in Australia?",
+      "options": ["Mourvèdre", "Grenache", "Syrah/Shiraz", "Carignan"],
+      "correctAnswer": "Syrah/Shiraz"
+    },
+    {
+      "category": "Wine Varieties",
+      "difficulty": "Hard",
+      "question": "Grüner Veltliner is the flagship white grape of which country?",
+      "options": ["Germany", "Austria", "Switzerland", "Hungary"],
+      "correctAnswer": "Austria"
+    },
+    {
+      "category": "Wine Varieties",
+      "difficulty": "Hard",
+      "question": "What is the local name for Pinot Gris in Alsace, France?",
+      "options": ["Tokay Pinot Gris", "Ruländer", "Malvoisie", "Spätburgunder"],
+      "correctAnswer": "Tokay Pinot Gris"
+    },
+    {
+      "category": "Wine Varieties",
+      "difficulty": "Hard",
+      "question": "Which grape makes the famous Hungarian dessert wine Tokaji Aszú?",
+      "options": ["Hárslevelű", "Furmint", "Kékfrankos", "Kadarka"],
+      "correctAnswer": "Furmint"
+    },
+    {
+      "category": "Wine Varieties",
+      "difficulty": "Hard",
+      "question": "Aglianico is native to which Italian region?",
+      "options": ["Tuscany", "Piedmont", "Campania", "Sicily"],
+      "correctAnswer": "Campania"
+    },
+    {
+      "category": "Winemaking Process",
+      "difficulty": "Easy",
+      "question": "What process converts grape juice into wine?",
+      "options": ["Fermentation", "Distillation", "Oxidation", "Filtration"],
+      "correctAnswer": "Fermentation"
+    },
+    {
+      "category": "Winemaking Process",
+      "difficulty": "Easy",
+      "question": "What is the name of the sugar in grapes that yeast converts to alcohol?",
+      "options": ["Fructose", "Lactose", "Glucose", "Sucrose"],
+      "correctAnswer": "Glucose"
+    },
+    {
+      "category": "Winemaking Process",
+      "difficulty": "Easy",
+      "question": "Which container is most commonly used for aging premium red wine?",
+      "options": ["Plastic tank", "Stainless steel", "Oak barrel", "Concrete egg"],
+      "correctAnswer": "Oak barrel"
+    },
+    {
+      "category": "Winemaking Process",
+      "difficulty": "Easy",
+      "question": "What is the process of removing solids from wine called?",
+      "options": ["Racking", "Crushing", "Pressing", "Clarification"],
+      "correctAnswer": "Clarification"
+    },
+    {
+      "category": "Winemaking Process",
+      "difficulty": "Easy",
+      "question": "What does 'vintage' refer to on a wine label?",
+      "options": ["The winery's founding year", "The year the grapes were harvested", "The bottle age", "The bottling date"],
+      "correctAnswer": "The year the grapes were harvested"
+    },
+    {
+      "category": "Winemaking Process",
+      "difficulty": "Normal",
+      "question": "What is malolactic fermentation?",
+      "options": ["Converting malic acid to lactic acid", "Converting sugar to alcohol", "Adding sulfites to wine", "Removing tannins from wine"],
+      "correctAnswer": "Converting malic acid to lactic acid"
+    },
+    {
+      "category": "Winemaking Process",
+      "difficulty": "Normal",
+      "question": "What is the purpose of 'racking' wine?",
+      "options": ["Adding sulfur", "Separating wine from sediment", "Adding oak chips", "Increasing alcohol content"],
+      "correctAnswer": "Separating wine from sediment"
+    },
+    {
+      "category": "Winemaking Process",
+      "difficulty": "Normal",
+      "question": "Which winemaking technique involves leaving grape skins in contact with juice during fermentation to produce rosé?",
+      "options": ["Saignée method", "Carbonic maceration", "Cold stabilization", "Sur lie aging"],
+      "correctAnswer": "Saignée method"
+    },
+    {
+      "category": "Winemaking Process",
+      "difficulty": "Normal",
+      "question": "What does 'sur lie' aging mean?",
+      "options": ["Aging on grape skins", "Aging on spent yeast cells", "Aging in new oak", "Aging underground"],
+      "correctAnswer": "Aging on spent yeast cells"
+    },
+    {
+      "category": "Winemaking Process",
+      "difficulty": "Normal",
+      "question": "What is carbonic maceration primarily used for?",
+      "options": ["Making tannic reds", "Making fruity, low-tannin wines like Beaujolais", "Making sparkling wine", "Making dessert wine"],
+      "correctAnswer": "Making fruity, low-tannin wines like Beaujolais"
+    },
+    {
+      "category": "Winemaking Process",
+      "difficulty": "Hard",
+      "question": "In the Traditional Method of sparkling wine production, what is 'disgorgement'?",
+      "options": ["Adding the dosage", "Removing the yeast sediment from the bottle", "First fermentation in tank", "Riddling the bottles"],
+      "correctAnswer": "Removing the yeast sediment from the bottle"
+    },
+    {
+      "category": "Winemaking Process",
+      "difficulty": "Hard",
+      "question": "What is the Brix scale used to measure?",
+      "options": ["Wine acidity", "Sugar content in grape juice", "Alcohol by volume", "Tannin level"],
+      "correctAnswer": "Sugar content in grape juice"
+    },
+    {
+      "category": "Winemaking Process",
+      "difficulty": "Hard",
+      "question": "What is 'chaptalization'?",
+      "options": ["Adding water to wine", "Adding sulfur dioxide", "Adding sugar before fermentation to raise potential alcohol", "Blending different varietals"],
+      "correctAnswer": "Adding sugar before fermentation to raise potential alcohol"
+    },
+    {
+      "category": "Winemaking Process",
+      "difficulty": "Hard",
+      "question": "What does 'pigeage' refer to in winemaking?",
+      "options": ["Cold soaking the must", "Punching down the cap of grape skins during fermentation", "Pressing grapes by foot", "Filtering wine before bottling"],
+      "correctAnswer": "Punching down the cap of grape skins during fermentation"
+    },
+    {
+      "category": "Winemaking Process",
+      "difficulty": "Hard",
+      "question": "What is the role of SO2 (sulfur dioxide) in winemaking?",
+      "options": ["Increases tannins", "Acts as an antioxidant and antimicrobial agent", "Increases sugar levels", "Boosts color extraction"],
+      "correctAnswer": "Acts as an antioxidant and antimicrobial agent"
+    },
+    {
+      "category": "Wine Regions",
+      "difficulty": "Easy",
+      "question": "Which country is the Loire Valley wine region located in?",
+      "options": ["Spain", "Italy", "France", "Portugal"],
+      "correctAnswer": "France"
+    },
+    {
+      "category": "Wine Regions",
+      "difficulty": "Easy",
+      "question": "Napa Valley is a famous wine region in which U.S. state?",
+      "options": ["Oregon", "Washington", "California", "Texas"],
+      "correctAnswer": "California"
+    },
+    {
+      "category": "Wine Regions",
+      "difficulty": "Easy",
+      "question": "Bordeaux wine comes from which country?",
+      "options": ["Italy", "France", "Spain", "Portugal"],
+      "correctAnswer": "France"
+    },
+    {
+      "category": "Wine Regions",
+      "difficulty": "Easy",
+      "question": "Rioja is a wine region in which country?",
+      "options": ["Portugal", "Italy", "Argentina", "Spain"],
+      "correctAnswer": "Spain"
+    },
+    {
+      "category": "Wine Regions",
+      "difficulty": "Easy",
+      "question": "Tuscany is a wine-producing region in which country?",
+      "options": ["France", "Greece", "Italy", "Croatia"],
+      "correctAnswer": "Italy"
+    },
+    {
+      "category": "Wine Regions",
+      "difficulty": "Normal",
+      "question": "Which Australian region is famous for Shiraz?",
+      "options": ["Marlborough", "Barossa Valley", "Napa Valley", "Mendoza"],
+      "correctAnswer": "Barossa Valley"
+    },
+    {
+      "category": "Wine Regions",
+      "difficulty": "Normal",
+      "question": "Marlborough, famous for Sauvignon Blanc, is in which country?",
+      "options": ["Australia", "South Africa", "New Zealand", "Chile"],
+      "correctAnswer": "New Zealand"
+    },
+    {
+      "category": "Wine Regions",
+      "difficulty": "Normal",
+      "question": "Champagne is produced in which region of France?",
+      "options": ["Burgundy", "Alsace", "Champagne", "Rhône Valley"],
+      "correctAnswer": "Champagne"
+    },
+    {
+      "category": "Wine Regions",
+      "difficulty": "Normal",
+      "question": "The Douro Valley is the heartland of production for which famous wine?",
+      "options": ["Sherry", "Port", "Madeira", "Vinho Verde"],
+      "correctAnswer": "Port"
+    },
+    {
+      "category": "Wine Regions",
+      "difficulty": "Normal",
+      "question": "Which region of Burgundy is home to some of the most expensive wines in the world?",
+      "options": ["Mâcon", "Chablis", "Côte de Nuits", "Beaujolais"],
+      "correctAnswer": "Côte de Nuits"
+    },
+    {
+      "category": "Wine Regions",
+      "difficulty": "Hard",
+      "question": "Priorat is an elite wine region in which Spanish autonomous community?",
+      "options": ["Castile", "Catalonia", "Galicia", "Andalusia"],
+      "correctAnswer": "Catalonia"
+    },
+    {
+      "category": "Wine Regions",
+      "difficulty": "Hard",
+      "question": "Wachau is a prestigious wine region in which country, known for Grüner Veltliner?",
+      "options": ["Germany", "Switzerland", "Austria", "Hungary"],
+      "correctAnswer": "Austria"
+    },
+    {
+      "category": "Wine Regions",
+      "difficulty": "Hard",
+      "question": "Which Italian DOCG produces Amarone della Valpolicella?",
+      "options": ["Veneto", "Piedmont", "Lombardy", "Trentino"],
+      "correctAnswer": "Veneto"
+    },
+    {
+      "category": "Wine Regions",
+      "difficulty": "Hard",
+      "question": "Constantia, one of the world's oldest wine estates, is in which country?",
+      "options": ["Argentina", "Australia", "South Africa", "Chile"],
+      "correctAnswer": "South Africa"
+    },
+    {
+      "category": "Wine Regions",
+      "difficulty": "Hard",
+      "question": "Which appellation in Bordeaux is home to Château Pétrus?",
+      "options": ["Pomerol", "Saint-Émilion", "Margaux", "Pauillac"],
+      "correctAnswer": "Pomerol"
+    },
+    {
+      "category": "Wine History",
+      "difficulty": "Easy",
+      "question": "In which country did wine production most likely originate?",
+      "options": ["France", "Italy", "Georgia", "Egypt"],
+      "correctAnswer": "Georgia"
+    },
+    {
+      "category": "Wine History",
+      "difficulty": "Easy",
+      "question": "Which ancient civilization is credited with spreading viticulture across the Mediterranean?",
+      "options": ["Greeks", "Romans", "Egyptians", "Persians"],
+      "correctAnswer": "Romans"
+    },
+    {
+      "category": "Wine History",
+      "difficulty": "Easy",
+      "question": "What was the devastating vine disease that swept through European vineyards in the 19th century?",
+      "options": ["Downy mildew", "Phylloxera", "Botrytis", "Powdery mildew"],
+      "correctAnswer": "Phylloxera"
+    },
+    {
+      "category": "Wine History",
+      "difficulty": "Easy",
+      "question": "Who is credited with popularizing the use of cork stoppers for wine bottles?",
+      "options": ["Napoleon Bonaparte", "Dom Pérignon", "Louis Pasteur", "Amerigo Vespucci"],
+      "correctAnswer": "Dom Pérignon"
+    },
+    {
+      "category": "Wine History",
+      "difficulty": "Easy",
+      "question": "The Paris Tasting of 1976 is famous for what outcome?",
+      "options": ["French wines won all categories", "California wines beat French wines in blind tasting", "Italian wines were declared world's best", "Australian wines won gold medals"],
+      "correctAnswer": "California wines beat French wines in blind tasting"
+    },
+    {
+      "category": "Wine History",
+      "difficulty": "Normal",
+      "question": "What is the significance of the 1855 Bordeaux Classification?",
+      "options": ["It ranked Burgundy wines", "It classified Médoc châteaux into five growths (Crus)", "It established Champagne AOC laws", "It introduced the concept of terroir"],
+      "correctAnswer": "It classified Médoc châteaux into five growths (Crus)"
+    },
+    {
+      "category": "Wine History",
+      "difficulty": "Normal",
+      "question": "Louis Pasteur's research on fermentation in the 1850s–1860s directly helped winemakers to:",
+      "options": ["Discover new grape varieties", "Understand and control microbial activity", "Invent the wine press", "Introduce oak barrels"],
+      "correctAnswer": "Understand and control microbial activity"
+    },
+    {
+      "category": "Wine History",
+      "difficulty": "Normal",
+      "question": "Which country introduced the first modern wine classification system in the 18th century?",
+      "options": ["Italy", "France", "Portugal", "Germany"],
+      "correctAnswer": "Portugal"
+    },
+    {
+      "category": "Wine History",
+      "difficulty": "Normal",
+      "question": "Prohibition in the United States lasted from which year to which year?",
+      "options": ["1910–1930", "1919–1933", "1920–1940", "1915–1929"],
+      "correctAnswer": "1919–1933"
+    },
+    {
+      "category": "Wine History",
+      "difficulty": "Normal",
+      "question": "The Knights Templar played a role in spreading viticulture in medieval Europe. In which country did they cultivate the famous Château de la Commanderie?",
+      "options": ["Spain", "France", "Italy", "Germany"],
+      "correctAnswer": "France"
+    },
+    {
+      "category": "Wine History",
+      "difficulty": "Hard",
+      "question": "The term 'Claret' historically referred to wines from which region exported to England?",
+      "options": ["Burgundy", "Rhône", "Bordeaux", "Loire"],
+      "correctAnswer": "Bordeaux"
+    },
+    {
+      "category": "Wine History",
+      "difficulty": "Hard",
+      "question": "What is the oldest evidence of wine production, dating back approximately 8,000 years?",
+      "options": ["Clay vessels found in Georgia", "Papyrus scrolls from Egypt", "Cave paintings in Spain", "Sumerian tablets in Mesopotamia"],
+      "correctAnswer": "Clay vessels found in Georgia"
+    },
+    {
+      "category": "Wine History",
+      "difficulty": "Hard",
+      "question": "Which Roman Emperor reportedly had a particular fondness for Falernian wine?",
+      "options": ["Augustus", "Julius Caesar", "Caligula", "Marcus Aurelius"],
+      "correctAnswer": "Julius Caesar"
+    },
+    {
+      "category": "Wine History",
+      "difficulty": "Hard",
+      "question": "What was the name of the American rootstock used to save European vines from phylloxera?",
+      "options": ["Vitis labrusca", "Vitis riparia", "Vitis berlandieri", "Vitis rupestris"],
+      "correctAnswer": "Vitis riparia"
+    },
+    {
+      "category": "Wine History",
+      "difficulty": "Hard",
+      "question": "The 'Flying Winemakers' movement of the 1980s–90s originated from which country?",
+      "options": ["USA", "France", "Australia", "Italy"],
+      "correctAnswer": "Australia"
+    },
+    {
+      "category": "Wine Industry",
+      "difficulty": "Easy",
+      "question": "What does 'AOC' stand for in French wine labeling?",
+      "options": ["Appellation d'Origine Contrôlée", "Alcohol Origin Certificate", "Association of Organic Cellars", "Authorized Oak Container"],
+      "correctAnswer": "Appellation d'Origine Contrôlée"
+    },
+    {
+      "category": "Wine Industry",
+      "difficulty": "Easy",
+      "question": "Which country is the world's largest wine producer by volume?",
+      "options": ["France", "Italy", "Spain", "USA"],
+      "correctAnswer": "Italy"
+    },
+    {
+      "category": "Wine Industry",
+      "difficulty": "Easy",
+      "question": "What does 'DOC' stand for in Italian wine classification?",
+      "options": ["Denominazione di Origine Controllata", "Denomination of Old Cellars", "Direct Origin Certificate", "District of Certified Origin"],
+      "correctAnswer": "Denominazione di Origine Controllata"
+    },
+    {
+      "category": "Wine Industry",
+      "difficulty": "Easy",
+      "question": "What is the standard bottle size for wine in milliliters?",
+      "options": ["500 ml", "700 ml", "750 ml", "1000 ml"],
+      "correctAnswer": "750 ml"
+    },
+    {
+      "category": "Wine Industry",
+      "difficulty": "Easy",
+      "question": "What is a sommelier?",
+      "options": ["A grape grower", "A wine waiter or expert", "A winemaker", "A wine bottle designer"],
+      "correctAnswer": "A wine waiter or expert"
+    },
+    {
+      "category": "Wine Industry",
+      "difficulty": "Normal",
+      "question": "Which wine critic's 100-point scale became the industry standard in the 1980s?",
+      "options": ["Jancis Robinson", "Robert Parker", "Hugh Johnson", "James Suckling"],
+      "correctAnswer": "Robert Parker"
+    },
+    {
+      "category": "Wine Industry",
+      "difficulty": "Normal",
+      "question": "What does 'négociant' mean in the wine trade?",
+      "options": ["An organic wine producer", "A merchant who buys, blends and sells wine under their own label", "A government wine inspector", "A grape broker"],
+      "correctAnswer": "A merchant who buys, blends and sells wine under their own label"
+    },
+    {
+      "category": "Wine Industry",
+      "difficulty": "Normal",
+      "question": "The WSET (Wine & Spirit Education Trust) is based in which city?",
+      "options": ["Paris", "New York", "London", "Sydney"],
+      "correctAnswer": "London"
+    },
+    {
+      "category": "Wine Industry",
+      "difficulty": "Normal",
+      "question": "What is a 'Grand Cru' in the context of French wine?",
+      "options": ["A large estate", "The highest classification level", "A sparkling wine style", "A wine over 20 years old"],
+      "correctAnswer": "The highest classification level"
+    },
+    {
+      "category": "Wine Industry",
+      "difficulty": "Normal",
+      "question": "Biodynamic viticulture follows the principles of which philosopher?",
+      "options": ["Rudolf Steiner", "Karl Marx", "Friedrich Nietzsche", "Johann Wolfgang von Goethe"],
+      "correctAnswer": "Rudolf Steiner"
+    },
+    {
+      "category": "Wine Industry",
+      "difficulty": "Hard",
+      "question": "What is the average global wine consumption per person per year?",
+      "options": ["About 2 liters", "About 4 liters", "About 7 liters", "About 12 liters"],
+      "correctAnswer": "About 4 liters"
+    },
+    {
+      "category": "Wine Industry",
+      "difficulty": "Hard",
+      "question": "Which wine auction house holds the record for the most expensive bottle of wine ever sold?",
+      "options": ["Sotheby's", "Christie's", "Acker Merrall & Condit", "Zachys"],
+      "correctAnswer": "Sotheby's"
+    },
+    {
+      "category": "Wine Industry",
+      "difficulty": "Hard",
+      "question": "The term 'en primeur' refers to which practice?",
+      "options": ["Selling wine before it is bottled, as futures", "First-release organic wines", "Opening a bottle before its peak", "Exporting wine duty-free"],
+      "correctAnswer": "Selling wine before it is bottled, as futures"
+    },
+    {
+      "category": "Wine Industry",
+      "difficulty": "Hard",
+      "question": "What is the significance of the 'Parker Effect' in the wine industry?",
+      "options": ["Shift toward lighter, high-acid wines", "Winemakers began making richer, higher-alcohol wines to score well in Robert Parker's reviews", "Introduction of screwcap closures", "Decline of natural wine production"],
+      "correctAnswer": "Winemakers began making richer, higher-alcohol wines to score well in Robert Parker's reviews"
+    },
+    {
+      "category": "Wine Industry",
+      "difficulty": "Hard",
+      "question": "Which French concept describes the total natural environment of a vineyard (soil, climate, topography)?",
+      "options": ["Cru", "Millésime", "Terroir", "Assemblage"],
+      "correctAnswer": "Terroir"
+    },
+    {
+      "category": "Food Pairing",
+      "difficulty": "Easy",
+      "question": "Which wine is classically paired with oysters?",
+      "options": ["Cabernet Sauvignon", "Chablis (Chardonnay)", "Malbec", "Zinfandel"],
+      "correctAnswer": "Chablis (Chardonnay)"
+    },
+    {
+      "category": "Food Pairing",
+      "difficulty": "Easy",
+      "question": "What type of wine is typically served with red meat such as steak?",
+      "options": ["Sparkling white", "Light rosé", "Full-bodied red", "Sweet dessert wine"],
+      "correctAnswer": "Full-bodied red"
+    },
+    {
+      "category": "Food Pairing",
+      "difficulty": "Easy",
+      "question": "Champagne is traditionally served at which occasion?",
+      "options": ["With dessert", "As an aperitif or celebration", "With hearty stews", "With cheese only"],
+      "correctAnswer": "As an aperitif or celebration"
+    },
+    {
+      "category": "Food Pairing",
+      "difficulty": "Easy",
+      "question": "Which wine pairs best with spicy Asian cuisine?",
+      "options": ["Tannic Cabernet Sauvignon", "Off-dry Riesling", "Full-bodied Shiraz", "Oaky Chardonnay"],
+      "correctAnswer": "Off-dry Riesling"
+    },
+    {
+      "category": "Food Pairing",
+      "difficulty": "Easy",
+      "question": "Port wine is traditionally paired with what food?",
+      "options": ["Seafood", "Salad", "Stilton cheese", "Chicken breast"],
+      "correctAnswer": "Stilton cheese"
+    },
+    {
+      "category": "Food Pairing",
+      "difficulty": "Normal",
+      "question": "Which principle of food and wine pairing suggests matching the weight of the food with the weight of the wine?",
+      "options": ["Contrast pairing", "Congruent pairing", "Regional pairing", "Weight matching"],
+      "correctAnswer": "Weight matching"
+    },
+    {
+      "category": "Food Pairing",
+      "difficulty": "Normal",
+      "question": "Why does high-acid wine pair well with fatty or rich foods?",
+      "options": ["The acid softens the tannins", "The acid cuts through fat and cleanses the palate", "The acid enhances sweetness", "The acid increases the perception of alcohol"],
+      "correctAnswer": "The acid cuts through fat and cleanses the palate"
+    },
+    {
+      "category": "Food Pairing",
+      "difficulty": "Normal",
+      "question": "Sauternes, a sweet Bordeaux white wine, is classically paired with which dish?",
+      "options": ["Grilled salmon", "Foie gras", "Roast beef", "Caesar salad"],
+      "correctAnswer": "Foie gras"
+    },
+    {
+      "category": "Food Pairing",
+      "difficulty": "Normal",
+      "question": "Chianti Classico pairs especially well with which cuisine?",
+      "options": ["Japanese sushi", "Italian tomato-based dishes (pasta, pizza)", "Mexican tacos", "Indian curry"],
+      "correctAnswer": "Italian tomato-based dishes (pasta, pizza)"
+    },
+    {
+      "category": "Food Pairing",
+      "difficulty": "Normal",
+      "question": "Which wine is commonly recommended with dishes that have high acidity (e.g., tomato sauce)?",
+      "options": ["High-tannin Cabernet Sauvignon", "High-acid Sangiovese", "Buttery Chardonnay", "Sweet Riesling Spätlese"],
+      "correctAnswer": "High-acid Sangiovese"
+    },
+    {
+      "category": "Food Pairing",
+      "difficulty": "Hard",
+      "question": "Why is it generally advised to avoid pairing very tannic wines with fish?",
+      "options": ["Tannins clash with the iodine in fish, creating a metallic taste", "Fish overpowers the wine's fruit", "Tannins cause the fish to smell stronger", "Fish requires sweet wines only"],
+      "correctAnswer": "Tannins clash with the iodine in fish, creating a metallic taste"
+    },
+    {
+      "category": "Food Pairing",
+      "difficulty": "Hard",
+      "question": "Which cheese is considered the best match for Sauternes?",
+      "options": ["Roquefort (blue cheese)", "Emmental", "Brie", "Aged Cheddar"],
+      "correctAnswer": "Roquefort (blue cheese)"
+    },
+    {
+      "category": "Food Pairing",
+      "difficulty": "Hard",
+      "question": "What is the concept of 'umami bridging' in wine pairing?",
+      "options": ["Pairing umami-rich food with wines that have savory notes (e.g., aged Burgundy)", "Matching the sweetness of wine to the food", "Using wine as a cooking ingredient for umami dishes", "Avoiding wine with umami foods entirely"],
+      "correctAnswer": "Pairing umami-rich food with wines that have savory notes (e.g., aged Burgundy)"
+    },
+    {
+      "category": "Food Pairing",
+      "difficulty": "Hard",
+      "question": "Why is it challenging to pair wine with artichokes?",
+      "options": ["Artichokes contain cynarin, which makes everything taste sweeter after eating them", "Artichokes are too spicy for wine", "Artichokes absorb the tannins in wine", "Artichokes require carbonation to digest"],
+      "correctAnswer": "Artichokes contain cynarin, which makes everything taste sweeter after eating them"
+    },
+    {
+      "category": "Food Pairing",
+      "difficulty": "Hard",
+      "question": "Which wine style best complements a dish with intense smokiness, such as smoked duck breast?",
+      "options": ["Delicate Pinot Grigio", "Aged Barolo with tar notes", "Sweet Moscato", "Light Beaujolais"],
+      "correctAnswer": "Aged Barolo with tar notes"
+    }
+  ]
+}
