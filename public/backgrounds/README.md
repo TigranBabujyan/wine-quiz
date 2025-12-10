@@ -1,0 +1,1 @@
+Please place your six background images (e.g., 1.jpg, 2.jpg, etc.) in this directory.
