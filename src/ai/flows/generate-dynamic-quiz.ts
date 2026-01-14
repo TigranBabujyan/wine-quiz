@@ -4,7 +4,7 @@
 import { genkit } from 'genkit';
 import { googleAI } from '@genkit-ai/googleai';
 import { z } from 'genkit';
-import { GenerateDynamicQuizOutputSchema, GenerateDynamicQuizOutput } from '@/ai/schemas/quiz-schemas';
+import { GenerateDynamicQuizOutputSchema } from '@/ai/schemas/quiz-schemas';
 import { ai } from '@/ai/genkit';
 
 const QuizDifficultySchema = z.enum(['Easy', 'Normal', 'Hard']);
@@ -29,6 +29,14 @@ const GenerateDynamicQuizInputSchema = z.object({
 });
 export type GenerateDynamicQuizInput = z.infer<typeof GenerateDynamicQuizInputSchema>;
 
+export type GenerateDynamicQuizOutput = {
+  quiz: Array<{
+    question: string;
+    options: string[];
+    correctAnswer: string;
+  }>;
+};
+
 export async function generateDynamicQuiz(
   input: GenerateDynamicQuizInput,
   apiKey?: string
@@ -40,6 +48,26 @@ The quiz MUST be formatted as a JSON object with a "quiz" field that is an array
 *   "question": The text of the question.
 *   "options": An array of strings representing the possible answers. One of these options MUST be the correct answer.
 *   "correctAnswer": The correct answer. This MUST be one of the options in the "options" array.
+
+Example of the required JSON format:
+\`\`\`json
+{
+  "quiz": [
+    {
+      "question": "What is the main grape used in Barolo wine?",
+      "options": ["Sangiovese", "Nebbiolo", "Barbera", "Merlot"],
+      "correctAnswer": "Nebbiolo"
+    },
+    {
+      "question": "Which country is the Loire Valley in?",
+      "options": ["Spain", "Italy", "France", "Portugal"],
+      "correctAnswer": "France"
+    }
+  ]
+}
+\`\`\`
+
+Ensure that the questions are relevant to the specified category and difficulty level. The questions should be challenging but not obscure for the given difficulty level.
 
 Difficulty: ${input.difficulty}
 Category: ${input.category}
