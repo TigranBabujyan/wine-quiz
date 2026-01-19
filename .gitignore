@@ -37,4 +37,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+.genkit/*
 .env*
+.idx/
+.claude/
+.modified
+.idea/
+.env*.local
