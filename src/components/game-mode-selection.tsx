@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Users, User, BookOpen, Zap, Wand2, Grape } from 'lucide-react';
+import { Users, User, BookOpen, Zap, Wand2 } from 'lucide-react';
 
 export function GameModeSelection() {
   const gameModes = [
@@ -13,7 +13,6 @@ export function GameModeSelection() {
     { href: '/arcade', icon: Zap, label: 'Arcade Mode' },
     { href: '/learning', icon: BookOpen, label: 'Learning Mode' },
     { href: '/quiz-generator', icon: Wand2, label: 'Custom Quiz' },
-    { href: '/armenian-wines', icon: Grape, label: 'Armenian Wines' },
   ];
 
   return (

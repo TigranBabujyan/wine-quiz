@@ -1,14 +1,16 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
-import { GlassWater } from 'lucide-react';
-import { Slider } from "@/components/ui/slider"
+import { GlassWater, Wand2, BookCopy } from 'lucide-react';
+import { Slider } from "@/components/ui/slider";
+import { getApiKey } from '@/app/actions/api-key';
+import { cn } from '@/lib/utils';
 
 const difficulties = ["Easy", "Normal", "Hard"];
 const categories = [
@@ -29,6 +31,16 @@ export function QuizSetup() {
   const [category, setCategory] = useState(searchParams.get('category') || categories[0]);
   const [numQuestions, setNumQuestions] = useState(parseInt(searchParams.get('numQuestions') as string) || 10);
   const [timePerQuestion, setTimePerQuestion] = useState(parseInt(searchParams.get('timePerQuestion') as string) || timeOptions[0]);
+  const [source, setSource] = useState<'ai' | 'local'>('local');
+  const [hasApiKey, setHasApiKey] = useState(false);
+
+  useEffect(() => {
+    getApiKey().then((key) => {
+      const has = Boolean(key);
+      setHasApiKey(has);
+      setSource(has ? 'ai' : 'local');
+    });
+  }, []);
 
   const startQuiz = () => {
     const params = new URLSearchParams(searchParams);
@@ -36,6 +48,7 @@ export function QuizSetup() {
     params.set('category', category);
     params.set('numQuestions', String(numQuestions));
     params.set('timePerQuestion', String(timePerQuestion));
+    params.set('source', source);
     params.set('start', 'true');
     router.push(`/quiz?${params.toString()}`);
   };
@@ -45,7 +58,45 @@ export function QuizSetup() {
       <CardHeader>
         <CardTitle className="text-2xl font-headline">Single Player Quiz</CardTitle>
         <CardDescription>Select a category and difficulty to begin.</CardDescription>
+
+        {/* Mode toggle */}
+        <div className="flex gap-2 mt-3">
+          <button
+            type="button"
+            onClick={() => hasApiKey && setSource('ai')}
+            className={cn(
+              'flex-1 flex items-center justify-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition-all',
+              source === 'ai'
+                ? 'border-primary bg-primary text-primary-foreground'
+                : 'border-border bg-muted/50 text-muted-foreground',
+              !hasApiKey && 'cursor-not-allowed opacity-40'
+            )}
+            title={!hasApiKey ? 'Add a Gemini API key on the home page to enable AI mode' : ''}
+          >
+            <Wand2 className="h-4 w-4" />
+            AI Mode
+          </button>
+          <button
+            type="button"
+            onClick={() => setSource('local')}
+            className={cn(
+              'flex-1 flex items-center justify-center gap-2 rounded-lg border px-3 py-2 text-sm font-medium transition-all',
+              source === 'local'
+                ? 'border-primary bg-primary text-primary-foreground'
+                : 'border-border bg-muted/50 text-muted-foreground'
+            )}
+          >
+            <BookCopy className="h-4 w-4" />
+            Local Mode
+          </button>
+        </div>
+        <p className="text-xs text-muted-foreground mt-1">
+          {source === 'ai'
+            ? 'Questions are generated fresh by Gemini AI.'
+            : 'Questions are drawn from the built-in local question bank.'}
+        </p>
       </CardHeader>
+
       <CardContent className="grid gap-6">
         <div className="grid gap-2">
           <Label htmlFor="category">Category</Label>
