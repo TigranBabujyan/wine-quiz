@@ -3,7 +3,7 @@
 
 import { MultiplayerSetup } from '@/components/multiplayer-setup';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { HomeIcon } from 'lucide-react';
@@ -46,7 +46,9 @@ export default function MultiplayerPage() {
           Enter your names and get ready to battle!
         </p>
       </div>
-      <MultiplayerSetup />
+      <Suspense fallback={<div>Loading...</div>}>
+        <MultiplayerSetup />
+      </Suspense>
         <div className="mt-8">
             <Link href="/" passHref>
                 <Button variant="outline"><HomeIcon className="mr-2" /> Back to Home</Button>
