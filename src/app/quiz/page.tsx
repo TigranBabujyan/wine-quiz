@@ -93,12 +93,13 @@ function QuizFlowController() {
                     }
                     setQuizData(questions);
                 } else {
+                    const apiKey = localStorage.getItem('gemini_api_key') ?? undefined;
                     const quizParams: GenerateDynamicQuizInput = {
                         difficulty: quizConfig.difficulty as any,
                         category: quizConfig.category as any,
                         numQuestions: quizConfig.numQuestions,
                     };
-                    const result = await generateDynamicQuiz(quizParams);
+                    const result = await generateDynamicQuiz(quizParams, apiKey);
                     if (!result || !result.quiz || result.quiz.length === 0) {
                         throw new Error("Failed to generate quiz content. The AI may have returned an empty or invalid quiz.");
                     }

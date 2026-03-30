@@ -46,13 +46,14 @@ function ArcadeContent() {
   const fetchQuiz = useCallback(async () => {
       setGameState('loading');
       setError(null);
+      const apiKey = localStorage.getItem('gemini_api_key') ?? undefined;
       const quizParams: GenerateDynamicQuizInput = {
         difficulty: 'Normal',
         category: 'Wine Varieties',
         numQuestions: 50,
       };
       try {
-        const result = await generateDynamicQuiz(quizParams);
+        const result = await generateDynamicQuiz(quizParams, apiKey);
         if (!result || !result.quiz || result.quiz.length === 0) {
           // This case is now handled more gracefully in the flow, but we keep client-side validation as a backup.
           throw new Error("The AI failed to generate a valid quiz. Please try again.");
