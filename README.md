@@ -6,7 +6,7 @@ An AI-powered wine education and quiz platform. Test your knowledge across categ
 
 ## Live Demo
 
-> **Try the app here:** `[INSERT DEPLOYED URL]`
+> **Try the app here:** [wine-quiz-lqag.vercel.app](https://wine-quiz-lqag.vercel.app)
 
 ---
 
