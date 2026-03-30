@@ -28,7 +28,7 @@ const backgroundImages = [
   '/backgrounds/6.jpg',
 ];
 
-export default function ArcadePage() {
+function ArcadeContent() {
   const [gameState, setGameState] = useState<'ready' | 'loading' | 'loaded' | 'playing' | 'finished' | 'error'>('ready');
   const [quizData, setQuizData] = useState<GenerateDynamicQuizOutput['quiz'] | null>(null);
   const [timeLeft, setTimeLeft] = useState(ARCADE_DURATION);
@@ -241,5 +241,13 @@ export default function ArcadePage() {
         {renderContent()}
       </div>
     </main>
+  );
+}
+
+export default function ArcadePage() {
+  return (
+    <Suspense fallback={<Skeleton className="h-96 w-full" />}>
+      <ArcadeContent />
+    </Suspense>
   );
 }

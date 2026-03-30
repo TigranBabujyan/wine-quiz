@@ -3,7 +3,7 @@
 
 import { QuizSetup } from '@/components/quiz-setup';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { HomeIcon } from 'lucide-react';
@@ -46,7 +46,9 @@ export default function SinglePlayerPage() {
           Customize your quiz and test your knowledge.
         </p>
       </div>
-      <QuizSetup />
+      <Suspense fallback={<div>Loading...</div>}>
+        <QuizSetup />
+      </Suspense>
        <div className="mt-8">
             <Link href="/" passHref>
                 <Button variant="outline"><HomeIcon className="mr-2" /> Back to Home</Button>
