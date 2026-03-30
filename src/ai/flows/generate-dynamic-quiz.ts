@@ -1,17 +1,11 @@
 
 'use server';
 
-/**
- * @fileOverview Generates a dynamic wine quiz based on difficulty and category.
- *
- * - generateDynamicQuiz - A function to generate a quiz.
- * - GenerateDynamicQuizInput - The input type for the generateDynamicQuiz function.
- * - GenerateDynamicQuizOutput - The return type for the generateDynamicQuiz function.
- */
-
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+import { genkit } from 'genkit';
+import { googleAI } from '@genkit-ai/googleai';
+import { z } from 'genkit';
 import { GenerateDynamicQuizOutputSchema } from '@/ai/schemas/quiz-schemas';
+import { ai } from '@/ai/genkit';
 
 const QuizDifficultySchema = z.enum(['Easy', 'Normal', 'Hard']);
 const QuizCategorySchema = z.enum([
@@ -33,21 +27,21 @@ const GenerateDynamicQuizInputSchema = z.object({
     .default(10)
     .describe('The number of questions in the quiz.'),
 });
-export type GenerateDynamicQuizInput = z.infer<
-  typeof GenerateDynamicQuizInputSchema
->;
+export type GenerateDynamicQuizInput = z.infer<typeof GenerateDynamicQuizInputSchema>;
+
+export type GenerateDynamicQuizOutput = {
+  quiz: Array<{
+    question: string;
+    options: string[];
+    correctAnswer: string;
+  }>;
+};
 
 export async function generateDynamicQuiz(
-  input: GenerateDynamicQuizInput
+  input: GenerateDynamicQuizInput,
+  apiKey?: string
 ) {
-  return generateDynamicQuizFlow(input);
-}
-
-const generateDynamicQuizPrompt = ai.definePrompt({
-  name: 'generateDynamicQuizPrompt',
-  input: {schema: GenerateDynamicQuizInputSchema},
-  output: {schema: GenerateDynamicQuizOutputSchema},
-  prompt: `You are an expert in wine and winemaking. Generate a quiz with {{numQuestions}} questions of {{difficulty}} difficulty on the topic of {{category}}.
+  const promptText = `You are an expert in wine and winemaking. Generate a quiz with ${input.numQuestions} questions of ${input.difficulty} difficulty on the topic of ${input.category}.
 
 The quiz MUST be formatted as a JSON object with a "quiz" field that is an array of questions. Each question object in the array MUST have the following fields:
 
@@ -73,34 +67,30 @@ Example of the required JSON format:
 }
 \`\`\`
 
-Ensure that the questions are relevant to the specified category and difficulty level. The questions should be challenging but not overly obscure for the given difficulty level.
+Ensure that the questions are relevant to the specified category and difficulty level. The questions should be challenging but not obscure for the given difficulty level.
 
-Difficulty: {{difficulty}}
-Category: {{category}}
-Number of Questions: {{numQuestions}}
+Difficulty: ${input.difficulty}
+Category: ${input.category}
+Number of Questions: ${input.numQuestions}
+`;
 
-`,
-});
+  try {
+    const instance = apiKey
+      ? genkit({ plugins: [googleAI({ apiKey })], model: 'googleai/gemini-2.5-flash' })
+      : ai;
 
-const generateDynamicQuizFlow = ai.defineFlow(
-  {
-    name: 'generateDynamicQuizFlow',
-    inputSchema: GenerateDynamicQuizInputSchema,
-    outputSchema: GenerateDynamicQuizOutputSchema,
-  },
-  async input => {
-    try {
-      const {output} = await generateDynamicQuizPrompt(input);
-      if (!output || !Array.isArray(output.quiz) || output.quiz.length === 0) {
-        console.error('AI model returned invalid or empty quiz data. Output:', JSON.stringify(output));
-        // Return an empty quiz, the client will handle this as an error state.
-        return { quiz: [] };
-      }
-      return output;
-    } catch (e: any) {
-      console.error("Error in generateDynamicQuizFlow:", e);
-       // Let the client know something went wrong, and it can show an error.
-      throw new Error(`Quiz generation failed in flow: ${e.message}`);
+    const { output } = await instance.generate({
+      prompt: promptText,
+      output: { schema: GenerateDynamicQuizOutputSchema },
+    });
+
+    if (!output || !Array.isArray(output.quiz) || output.quiz.length === 0) {
+      console.error('AI model returned invalid or empty quiz data.');
+      return { quiz: [] };
     }
+    return output;
+  } catch (e: any) {
+    console.error('Error in generateDynamicQuiz:', e);
+    throw new Error(`Quiz generation failed: ${e.message}`);
   }
-);
+}
