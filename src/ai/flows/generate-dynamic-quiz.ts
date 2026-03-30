@@ -12,7 +12,6 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 import { GenerateDynamicQuizOutputSchema } from '@/ai/schemas/quiz-schemas';
-import type { GenerateDynamicQuizOutput } from '@/ai/schemas/quiz-schemas';
 
 const QuizDifficultySchema = z.enum(['Easy', 'Normal', 'Hard']);
 const QuizCategorySchema = z.enum([
@@ -38,11 +37,9 @@ export type GenerateDynamicQuizInput = z.infer<
   typeof GenerateDynamicQuizInputSchema
 >;
 
-export type { GenerateDynamicQuizOutput };
-
 export async function generateDynamicQuiz(
   input: GenerateDynamicQuizInput
-): Promise<GenerateDynamicQuizOutput> {
+) {
   return generateDynamicQuizFlow(input);
 }
 

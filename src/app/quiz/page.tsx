@@ -4,10 +4,12 @@
 
 import { Suspense, useState, useEffect, useMemo, Key } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { generateDynamicQuiz, type GenerateDynamicQuizInput, type GenerateDynamicQuizOutput } from '@/ai/flows/generate-dynamic-quiz';
+import { generateDynamicQuiz, type GenerateDynamicQuizInput } from '@/ai/flows/generate-dynamic-quiz';
+import { getLocalQuiz } from '@/app/actions/get-local-quiz';
+import type { GenerateDynamicQuizOutput } from '@/ai/schemas/quiz-schemas';
 import { QuizClient } from './quiz-client';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { AlertCircle, ArrowLeft, PlayCircle } from 'lucide-react';
+import { AlertCircle, ArrowLeft, PlayCircle, Wand2, BookCopy } from 'lucide-react';
 import { Card, CardHeader, CardFooter, CardTitle, CardDescription } from '@/components/ui/card';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -55,10 +57,11 @@ function QuizFlowController() {
         const player2 = (searchParams.get('player2') as string) || 'Player 2';
         const numQuestions = parseInt(searchParams.get('numQuestions') as string) || (mode === 'multiplayer' ? 20 : 10);
         const timePerQuestion = parseInt(searchParams.get('timePerQuestion') as string) || 15;
-    
+        const source = (searchParams.get('source') as 'ai' | 'local') || 'ai';
+
         const validDifficulties = ['Easy', 'Normal', 'Hard'];
         const validCategories = ["Wine Varieties", "Winemaking Process", "Wine Regions", "Wine History", "Wine Industry", "Food Pairing"];
-    
+
         const validatedDifficulty = validDifficulties.includes(difficulty as string) ? difficulty : 'Normal';
         const validatedCategory = validCategories.includes(decodeURIComponent(category as string)) ? decodeURIComponent(category as string) : 'Wine Varieties';
 
@@ -69,7 +72,8 @@ function QuizFlowController() {
             player1,
             player2,
             numQuestions,
-            timePerQuestion
+            timePerQuestion,
+            source
         };
     }, [searchParams]);
 
@@ -78,22 +82,34 @@ function QuizFlowController() {
 
         async function fetchQuiz() {
             try {
-                const quizParams: GenerateDynamicQuizInput = { 
-                    difficulty: quizConfig.difficulty as any, 
-                    category: quizConfig.category as any, 
-                    numQuestions: quizConfig.numQuestions,
-                };
-                const result = await generateDynamicQuiz(quizParams);
-                if (!result || !result.quiz || result.quiz.length === 0) {
-                    throw new Error("Failed to generate quiz content. The AI may have returned an empty or invalid quiz.");
+                if (quizConfig.source === 'local') {
+                    const questions = await getLocalQuiz(
+                        quizConfig.category as any,
+                        quizConfig.difficulty as any,
+                        quizConfig.numQuestions
+                    );
+                    if (!questions || questions.length === 0) {
+                        throw new Error("No local questions found for the selected category and difficulty.");
+                    }
+                    setQuizData(questions);
+                } else {
+                    const quizParams: GenerateDynamicQuizInput = {
+                        difficulty: quizConfig.difficulty as any,
+                        category: quizConfig.category as any,
+                        numQuestions: quizConfig.numQuestions,
+                    };
+                    const result = await generateDynamicQuiz(quizParams);
+                    if (!result || !result.quiz || result.quiz.length === 0) {
+                        throw new Error("Failed to generate quiz content. The AI may have returned an empty or invalid quiz.");
+                    }
+                    setQuizData(result.quiz);
                 }
-                setQuizData(result.quiz);
             } catch (error: any) {
                 console.error("Quiz generation failed:", error);
                 const isOverloaded = error.message?.includes('503') || error.message?.includes('overloaded') || error.message?.includes('rate limit');
                 setError(isOverloaded
                     ? "The AI model is currently overloaded. Please wait a moment and try again."
-                    : "We couldn't generate the quiz at this moment. Please try again.");
+                    : error.message || "We couldn't generate the quiz at this moment. Please try again.");
             } finally {
                 setIsGenerated(true);
             }
@@ -136,6 +152,11 @@ function QuizFlowController() {
                   </div>
                   <CardTitle className="text-4xl font-headline mt-4">Quiz is Ready!</CardTitle>
                   <CardDescription className="text-xl">Your challenge awaits.</CardDescription>
+                  <div className="flex items-center justify-center gap-1.5 text-sm text-muted-foreground mt-1">
+                    {quizConfig.source === 'ai'
+                      ? <><Wand2 className="h-3.5 w-3.5" /> AI-generated</>
+                      : <><BookCopy className="h-3.5 w-3.5" /> Local question bank</>}
+                  </div>
                   {quizConfig.mode === 'multiplayer' && (
                     <p className="text-lg">{quizConfig.player1}, you're up first!</p>
                   )}
