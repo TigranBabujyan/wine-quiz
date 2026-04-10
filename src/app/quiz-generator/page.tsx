@@ -49,7 +49,8 @@ export default function QuizGeneratorPage() {
     setGameState('loading');
     setError(null);
     try {
-      const result = await getQuizFromText(context, numQuestions);
+      const apiKey = localStorage.getItem('gemini_api_key') ?? undefined;
+      const result = await getQuizFromText(context, numQuestions, apiKey);
       if (!result || !result.quiz || result.quiz.length === 0) {
         throw new Error("The AI failed to generate a quiz from the provided text. Please try adjusting the text or the number of questions.");
       }

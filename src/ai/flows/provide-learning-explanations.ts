@@ -8,6 +8,8 @@
  * - ProvideLearningExplanationOutput - The return type for the provideLearningExplanation function.
  */
 
+import {genkit} from 'genkit';
+import {googleAI} from '@genkit-ai/googleai';
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
@@ -22,30 +24,27 @@ const ProvideLearningExplanationOutputSchema = z.object({
 });
 export type ProvideLearningExplanationOutput = z.infer<typeof ProvideLearningExplanationOutputSchema>;
 
-export async function provideLearningExplanation(input: ProvideLearningExplanationInput): Promise<ProvideLearningExplanationOutput> {
-  return provideLearningExplanationFlow(input);
-}
+export async function provideLearningExplanation(input: ProvideLearningExplanationInput, apiKey?: string): Promise<ProvideLearningExplanationOutput> {
+  const promptText = `You are an expert wine educator. Provide a clear and concise explanation of the following topic related to wine, in the specified language.
 
-const prompt = ai.definePrompt({
-  name: 'provideLearningExplanationPrompt',
-  input: {schema: ProvideLearningExplanationInputSchema},
-  output: {schema: ProvideLearningExplanationOutputSchema},
-  prompt: `You are an expert wine educator. Provide a clear and concise explanation of the following topic related to wine, in the specified language.
+Language: ${input.language || 'en'}
+Topic: ${input.topic}
 
-Language: {{language}}
-Topic: {{{topic}}}
+Explanation:`;
 
-Explanation:`,
-});
+  try {
+    const instance = apiKey
+      ? genkit({ plugins: [googleAI({ apiKey })], model: 'googleai/gemini-2.5-flash' })
+      : ai;
 
-const provideLearningExplanationFlow = ai.defineFlow(
-  {
-    name: 'provideLearningExplanationFlow',
-    inputSchema: ProvideLearningExplanationInputSchema,
-    outputSchema: ProvideLearningExplanationOutputSchema,
-  },
-  async input => {
-    const {output} = await prompt(input);
+    const { output } = await instance.generate({
+      prompt: promptText,
+      output: { schema: ProvideLearningExplanationOutputSchema },
+    });
+
     return output!;
+  } catch (e: any) {
+    console.error('Error in provideLearningExplanation:', e);
+    throw new Error(`Explanation generation failed: ${e.message}`);
   }
-);
+}

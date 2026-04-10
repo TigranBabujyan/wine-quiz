@@ -9,6 +9,8 @@
  * - GenerateQuizFromTextOutput - The return type for the function (reusing from dynamic quiz).
  */
 
+import {genkit} from 'genkit';
+import {googleAI} from '@genkit-ai/googleai';
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 import { GenerateDynamicQuizOutputSchema, type GenerateDynamicQuizOutput } from '@/ai/schemas/quiz-schemas';
@@ -31,16 +33,10 @@ export type GenerateQuizFromTextOutput = GenerateDynamicQuizOutput;
 
 
 export async function generateQuizFromText(
-  input: GenerateQuizFromTextInput
+  input: GenerateQuizFromTextInput,
+  apiKey?: string
 ): Promise<GenerateQuizFromTextOutput> {
-  return generateQuizFromTextFlow(input);
-}
-
-const generateQuizFromTextPrompt = ai.definePrompt({
-  name: 'generateQuizFromTextPrompt',
-  input: {schema: GenerateQuizFromTextInputSchema},
-  output: {schema: GenerateDynamicQuizOutputSchema},
-  prompt: `You are an expert quiz creator. Your task is to generate a quiz with {{numQuestions}} questions based *only* on the provided context below. Do not use any external knowledge.
+  const promptText = `You are an expert quiz creator. Your task is to generate a quiz with ${input.numQuestions} questions based *only* on the provided context below. Do not use any external knowledge.
 
 The quiz MUST be formatted as a JSON object with a "quiz" field that is an array of questions. Each question object in the array MUST have the following fields:
 
@@ -63,32 +59,31 @@ Example of the required JSON format:
 
 Ensure that all questions and answers can be directly derived from the provided context.
 
-Number of Questions to generate: {{numQuestions}}
+Number of Questions to generate: ${input.numQuestions}
 
 Provided Context:
 ---
-{{{context}}}
+${input.context}
 ---
-`,
-});
+`;
 
-const generateQuizFromTextFlow = ai.defineFlow(
-  {
-    name: 'generateQuizFromTextFlow',
-    inputSchema: GenerateQuizFromTextInputSchema,
-    outputSchema: GenerateDynamicQuizOutputSchema,
-  },
-  async input => {
-    try {
-      const {output} = await generateQuizFromTextPrompt(input);
-      if (!output || !Array.isArray(output.quiz) || output.quiz.length === 0) {
-        console.error('AI model returned invalid or empty quiz data. Output:', JSON.stringify(output));
-        return { quiz: [] };
-      }
-      return output;
-    } catch (e: any) {
-      console.error("Error in generateQuizFromTextFlow:", e);
-      throw new Error(`Quiz generation failed in flow: ${e.message}`);
+  try {
+    const instance = apiKey
+      ? genkit({ plugins: [googleAI({ apiKey })], model: 'googleai/gemini-2.5-flash' })
+      : ai;
+
+    const { output } = await instance.generate({
+      prompt: promptText,
+      output: { schema: GenerateDynamicQuizOutputSchema },
+    });
+
+    if (!output || !Array.isArray(output.quiz) || output.quiz.length === 0) {
+      console.error('AI model returned invalid or empty quiz data. Output:', JSON.stringify(output));
+      return { quiz: [] };
     }
+    return output;
+  } catch (e: any) {
+    console.error("Error in generateQuizFromText:", e);
+    throw new Error(`Quiz generation failed: ${e.message}`);
   }
-);
+}

@@ -25,8 +25,8 @@ export function LearningExplanation({ topic }: LearningExplanationProps) {
     setIsOpen(true);
     setIsLoading(true);
     try {
-        // Hardcoding 'en' for now since i18n is removed
-        const result = await getExplanation(topic, 'en');
+        const apiKey = localStorage.getItem('gemini_api_key') ?? undefined;
+        const result = await getExplanation(topic, 'en', apiKey);
         setExplanation(result);
     } catch (e) {
         setExplanation("Sorry, we couldn't generate an explanation at this time. Please try again later.");
